@@ -1,0 +1,31 @@
+#game {
+  text-align: center;
+}
+
+#game-info {
+  margin: 5px;
+  font-size: 18px;
+}
+
+#game-info p {
+  display: inline;
+  padding: 20px;
+}
+
+#restart-btn {
+  padding: 5px 10px;
+  background-color: green;
+  color: white;
+  font-size: 18px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+#game-area {
+  margin: auto;
+  width: 400px;
+  height: 300px;
+  border: 2px solid green;
+  background-color: deepskyblue;
+}
