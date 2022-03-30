@@ -2,7 +2,10 @@ const restartBtn = document.querySelector("#restart-btn");
 const poles = document.querySelectorAll(".pole");
 
 const speed = 2;
+let animationReq;
+
 function startGame() {
+  reset();
   gameLoop();
 }
 
@@ -22,8 +25,17 @@ function update() {
 }
 
 function gameLoop() {
-  update(); 
-  requestAnimationFrame(gameLoop);
+  update();
+  animationReq = requestAnimationFrame(gameLoop);
+}
+
+function reset() {
+  poles.forEach((pole) => {
+    pole.style.right = 0;
+  });
+  if (animationReq) {
+    cancelAnimationFrame(animationReq);
+  }
 }
 
 restartBtn.addEventListener("click", startGame);
