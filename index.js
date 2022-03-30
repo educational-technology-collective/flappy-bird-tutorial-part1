@@ -6,7 +6,7 @@ function startGame() {
   gameLoop();
 }
 
-function gameLoop() {
+function updatePoles() {
   // Move poles
   let polesCurrentPos = parseFloat(
     window.getComputedStyle(poles[0]).getPropertyValue("right")
@@ -15,6 +15,14 @@ function gameLoop() {
   poles.forEach((pole) => {
     pole.style.right = `${polesCurrentPos + speed}px`;
   });
+}
+
+function update() {
+  updatePoles();
+}
+
+function gameLoop() {
+  update(); 
   requestAnimationFrame(gameLoop);
 }
 
