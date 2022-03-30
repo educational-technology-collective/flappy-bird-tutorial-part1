@@ -1,7 +1,21 @@
 const restartBtn = document.querySelector("#restart-btn");
+const poles = document.querySelectorAll(".pole");
 
+const speed = 2;
 function startGame() {
-    // do something here
+  gameLoop();
 }
 
-restartBtn.addEventListener('click', startGame);
+function gameLoop() {
+  // Move poles
+  let polesCurrentPos = parseFloat(
+    window.getComputedStyle(poles[0]).getPropertyValue("right")
+  );
+
+  poles.forEach((pole) => {
+    pole.style.right = `${polesCurrentPos + speed}px`;
+  });
+  requestAnimationFrame(gameLoop);
+}
+
+restartBtn.addEventListener("click", startGame);
